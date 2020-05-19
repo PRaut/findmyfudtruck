@@ -25,16 +25,19 @@ a{color:inherit; text-decoration: none;}
  
 .fix_wrap{width:100%; max-width:1300px; padding:0 10px; margin:0 auto;}
 
-header{width:100%; float: left; padding:20px 0; background: #fff; box-shadow: 0px 2px 12px rgba(0,0,0,0.5); position:relative; transition: all 0.5s ease-in-out 0.5s;}
-header.sticky{position: fixed; top:0; padding:10px 0; z-index: 999;}
-header .logo{float: left; width:300px;}
-header .navigation{float:right; margin-top: 15px; margin-right:20px;}
+header{width:100%; float: left; padding:20px 0; background: #fff; box-shadow: 0px 2px 12px rgba(0,0,0,0.5); position:relative; transition:0.5s;}
+header .logo{float: left; width:300px; transition: 0.5s;}
+header .navigation{float:right; margin-top: 15px; margin-right:20px; transition: 0.5s;}
 header .navigation li{float: left;}
 header .navigation li a{font-size: 22px; color:#f18a00; margin:12px 25px; display:block;} 
-header .navigation li.contact_btn a{padding:12px 25px;  display: block; color:#fff; margin:0;transform: skew(-30deg); position: relative; z-index: 1;}
+header .navigation li.contact_btn a{padding:12px 25px; transition: 0.5s; display: block; color:#fff; margin:0;transform: skew(-30deg); position: relative; z-index: 1;}
 header .navigation li.contact_btn{background: #f18a00; transform: skew(30deg); position: relative;}
 header .navigation li.contact_btn:after{top:0; height:0; left:0; right:0; background:#45a2b4; content:""; position: absolute; transition: 0.5s;} 
 header .navigation li.contact_btn:hover:after{height:100%; top:0;}
+header.sticky{position: fixed; top:0; z-index: 999; padding:10px 0;}
+header.sticky .logo{width:230px;}
+header.sticky .navigation{margin-top:5px;}
+
 
 .banner{width:100%; float: left; background: url('../images/banner.jpg'); height:550px; background-attachment: fixed; background-size:cover; background-position: center top; display:flex;  align-items: center;}
 .banner_text {
@@ -234,12 +237,19 @@ footer{width: 100%;float: left;background: #f18a00;text-align: center;color: #ff
 		padding: 50px 0 30px;
 	}
 	footer{font-size:16px;}
+	header.sticky .logo {
+		width: 180px;
+	}
 }
 
 @media only screen and (max-width:479px){
 	header .logo {
 		width: 165px;
 	}
+	header.sticky .logo {
+		width: 150px;
+	}
+	header .navigation{margin-top:5px;}
 	header .navigation li{display: none;}
 	header .navigation li.contact_btn{display:block;}
 	header .navigation li.contact_btn a{font-size:15px;}
@@ -254,4 +264,15 @@ footer{width: 100%;float: left;background: #f18a00;text-align: center;color: #ff
 	.banner_text h4{font-size:18px;}
 	.banner_text h2 span{font-size:18px;}
 	.banner{height:300px;}
+}
+
+
+#loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url("../images/Preloader_2.gif") center no-repeat #fff;
 }
